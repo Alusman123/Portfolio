@@ -5,9 +5,33 @@
     <link rel="icon" type="image/svg+xml" href="/Y3K.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>portfolio</title>
+    <style>
+      #video-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    </style>
   </head>
   <body>
+    <video id="video-bg" autoplay loop muted playsinline>
+      <source src="/topgif.mp4" type="video/mp4" />
+    </video>
+
     <div id="root"></div>
+     <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={topgif.mp4} type="video/mp4" />
+        </video>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
