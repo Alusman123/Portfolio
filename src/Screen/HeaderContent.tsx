@@ -1,4 +1,5 @@
 import Profile from "../assets/Profilepic.jpg"
+import { useState } from "react"
 
 type Section = "about" | "projects" | "techstack" | "experience" | null;
 
@@ -10,6 +11,8 @@ interface HeaderProps {
 }
 
 export function Header({ active, setActive, onLogoClick, showLanding }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navItems: { label: string; id: Section }[] = [
     { label: "About Me", id: "about" },
     { label: "Projects", id: "projects" },
@@ -17,11 +20,17 @@ export function Header({ active, setActive, onLogoClick, showLanding }: HeaderPr
     { label: "Experience", id: "experience" },
   ];
 
+  const handleNavClick = (id: Section) => {
+    setActive(id);
+    setMenuOpen(false);
+  };
+
   return (
-    <div className='flex items-center justify-between w-full'>
+    <div className='flex items-center justify-between w-full px-6 md:px-0'>
+      {/* Logo */}
       <div
         onClick={onLogoClick}
-        className="ml-[200px] flex justify-center items-center flex-row gap-3 cursor-pointer"
+        className="md:ml-[200px] flex justify-center items-center flex-row gap-3 cursor-pointer"
       >
         <img
           src={Profile}
@@ -33,7 +42,8 @@ export function Header({ active, setActive, onLogoClick, showLanding }: HeaderPr
         </div>
       </div>
 
-      <nav className='flex gap-6 mr-[200px]'>
+      {/* Desktop Nav */}
+      <nav className='hidden md:flex gap-6 mr-[200px]'>
         {navItems.map(({ label, id }) => (
           <button
             key={id}
@@ -48,6 +58,35 @@ export function Header({ active, setActive, onLogoClick, showLanding }: HeaderPr
           </button>
         ))}
       </nav>
+
+      {/* Hamburger Button */}
+      <button
+        className="md:hidden flex flex-col gap-1.5 cursor-pointer"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+        <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+        <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+      </button>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="md:hidden absolute top-20 left-0 w-full flex flex-col items-center gap-4 py-6 bg-black/90 backdrop-blur-sm z-50">
+          {navItems.map(({ label, id }) => (
+            <button
+              key={id}
+              onClick={() => handleNavClick(id)}
+              className={`border-[0.5px] border-white rounded-[20px] px-6 py-2 transition-colors duration-200 w-40
+                ${!showLanding && active === id
+                  ? "bg-white text-black"
+                  : "text-white hover:bg-white hover:text-black"
+                }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
