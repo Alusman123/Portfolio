@@ -24,7 +24,7 @@ export function Projects() {
 
       <div className="resume-scroll w-[600px] h-[550px] rounded-[20px] px-10 py-10 flex flex-col gap-5 overflow-y-auto">
 
-        <div>Poject</div>
+        <div className="flex justify-center items-center">Comming Soon...</div>
       </div>
     </>
   );
