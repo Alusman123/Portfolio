@@ -149,7 +149,7 @@ export default function Portfolio() {
               Full-Stack Developer & QA Engineer. I build performant web and mobile applications — from React Native UIs to Node.js APIs — and ship them with confidence using modern deployment pipelines.
             </p>
             <div style={{ display:"flex", gap:12, flexWrap:"wrap", animation:"fadeUp .8s .4s ease both", opacity:0, animationFillMode:"forwards" }}>
-              <a href="https://portfolio-alusman.vercel.app/" target="_blank" rel="noreferrer" className="btn-primary">GitHub ↗</a>
+              <a href="https://github.com/Alusman123" target="_blank" rel="noreferrer" className="btn-primary">GitHub ↗</a>
             
             </div>
             <div style={{ marginTop:40, display:"flex", gap:32, animation:"fadeUp .8s .5s ease both", opacity:0, animationFillMode:"forwards" }}>
