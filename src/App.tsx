@@ -128,7 +128,7 @@ export default function Portfolio() {
               <span key={l} className={`nav-link${active === l ? " active" : ""}`} onClick={() => scrollTo(l)}>{l}</span>
             ))}
           </div>
-          <button onClick={copyEmail} className="btn-primary" style={{ padding:"8px 18px", fontSize:12, border:"1px solid #00e5ff" }}>{copied ? "Copied! ✓" : "Hire Me"}</button>
+          <button onClick={copyEmail} className="btn-primary" style={{ padding:"8px 18px", fontSize:12, border:"1px solid #00e5ff" }}>{copied ? "Email Copied! ✓" : "Hire Me"}</button>
         </div>
       </nav>
 
