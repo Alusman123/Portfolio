@@ -28,7 +28,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 export default function Portfolio() {
   const [active, setActive] = useState("About");
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [, setMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [copied, setCopied] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
